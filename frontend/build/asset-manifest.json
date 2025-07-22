@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/static/css/main.3a1ef3c6.css",
+    "main.js": "/static/js/main.84fa6ce3.js",
+    "static/js/453.8daebf14.chunk.js": "/static/js/453.8daebf14.chunk.js",
+    "static/media/caro2.jpg": "/static/media/caro2.34d356c9ad1461d12bbc.jpg",
+    "static/media/client.gif": "/static/media/client.388e866e534d856e6742.gif",
+    "static/media/caro1.jpg": "/static/media/caro1.c7eca233b02dd9c52963.jpg",
+    "static/media/6G.jpeg": "/static/media/6G.57e87e4aef6984c8ce19.jpeg",
+    "static/media/robot.gif": "/static/media/robot.6eebd99c1fbd52e9d928.gif",
+    "static/media/robot1.gif": "/static/media/robot1.d3d692112b21d4f29f96.gif",
+    "static/media/logo.png": "/static/media/logo.7ce23eb380e2557cbe2b.png",
+    "static/media/genAI.jpg": "/static/media/genAI.fa6a3d067bf6e1ca8309.jpg",
+    "static/media/mission.png": "/static/media/mission.cc2d85819285df6df778.png",
+    "static/media/career_couns.jpg": "/static/media/career_couns.c7fa86bc5b41ff15f67e.jpg",
+    "index.html": "/index.html",
+    "main.3a1ef3c6.css.map": "/static/css/main.3a1ef3c6.css.map",
+    "main.84fa6ce3.js.map": "/static/js/main.84fa6ce3.js.map",
+    "453.8daebf14.chunk.js.map": "/static/js/453.8daebf14.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3a1ef3c6.css",
+    "static/js/main.84fa6ce3.js"
+  ]
+}
