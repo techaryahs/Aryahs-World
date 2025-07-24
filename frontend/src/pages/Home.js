@@ -221,7 +221,7 @@ const navigate = useNavigate();
             />
             <h3 className="text-xl font-semibold text-gray-800">Mr. Aryan</h3>
             <p className="text-sm text-gray-600 mt-2">
-              M.Tech CSE (San Francisco)<br />AI & Data Science Expert<br />Founder of Majesstystays
+              Mr. Aryan Shaikh <br />MS in Computer Science and Engineering, California<br />Founder of Aryahs World
             </p>
           </motion.div>
 
