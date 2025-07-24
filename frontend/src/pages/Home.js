@@ -6,11 +6,9 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css/effect-fade";
 import React, { useEffect } from "react";
-
-
+import { Link, useNavigate } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
-
 import caro1 from "../assets/caro1.jpg";
 import caro2 from "../assets/caro2.jpg";
 // import caro3 from "../assets/caro3.jpeg";
@@ -36,49 +34,49 @@ const capabilities = [
     icon: <CodeBracketIcon className="h-10 w-10 text-indigo-600" />,
     title: "Web & App Development",
     desc: "Responsive, scalable apps",
-    link: "/services/web-dev",
+    // link: "/services/web-dev",
   },
   {
     icon: <Cog6ToothIcon className="h-10 w-10 text-green-600" />,
     title: "AI/ML Integration",
     desc: "Smart & adaptive systems",
-    link: "/services/ai-ml",
+    // link: "/services/ai-ml",
   },
   {
     icon: <CloudIcon className="h-10 w-10 text-blue-500" />,
     title: "Cloud Deployment",
     desc: "Cloud-native & hybrid",
-    link: "/services/cloud",
+    // link: "/services/cloud",
   },
   {
     icon: <LightBulbIcon className="h-10 w-10 text-yellow-500" />,
     title: "Tech Consulting",
     desc: "Strategy & innovation",
-    link: "/services/consulting",
+    // link: "/services/consulting",
   },
   {
     icon: <ShieldCheckIcon className="h-10 w-10 text-red-500" />,
     title: "Cybersecurity",
     desc: "Secure architecture",
-    link: "/services/cybersecurity",
+    // link: "/services/cybersecurity",
   },
   {
     icon: <ChartBarIcon className="h-10 w-10 text-purple-600" />,
     title: "Data Analytics",
     desc: "Insights & dashboards",
-    link: "/services/data-analytics",
+    // link: "/services/data-analytics",
   },
   {
     icon: <PaintBrushIcon className="h-10 w-10 text-pink-500" />,
     title: "UI/UX Design",
     desc: "User-centered design",
-    link: "/services/ui-ux",
+    // link: "/services/ui-ux",
   },
   {
     icon: <CpuChipIcon className="h-10 w-10 text-emerald-500" />,
     title: "Automation & RPA",
     desc: "Process automation",
-    link: "/services/automation",
+    // link: "/services/automation",
   },
 
 ];
@@ -89,28 +87,34 @@ const slides = [
     title: "Welcome to Majesstystays",
     subtitle: "AI-powered Real Estate Discovery with Aryahs World Infotech",
     button1: "Read More",
+    link1: "./services",
     button2: "Contact Now",
+    link2: "./contact"
   },
   {
     img: CareerGenAi, // Make sure this image exists in your assets
     title: "Welcome to CareerGenAI",
-    subtitle: "AI-powered Career Guidance using LLMs and Resume Intelligence",
+    subtitle: "AI-powered Career Guidance Platform",
     button1: "Explore Now",
+    link1: "./services",
     button2: "Get Started",
+    link2: "https://www.careergenai.in/",
   },
   {
     img: GenAi, // Replace with actual image if needed
     title: "Welcome to GenAI",
     subtitle: "AI-based School Inspection for Food, Sanitation, and Wellness Monitoring",
-    button1: "Explore GenAI",
+    button1: "Explore GenAI PM Poshan Yojana",
+    link1: "https://play.google.com/store/apps/details?id=com.amit.genai",
     button2: "Contact Us",
+    link2: "./contact",
   },
 ];
-
 const Home = () => {
-  useEffect(() => {
-    AOS.init({ duration: 1000, once: true });
-  }, []);
+useEffect(() => {
+  AOS.init({ duration: 1000, once: true });
+}, []);
+const navigate = useNavigate();
 
   return (
     <div className="bg-white text-gray-900">
@@ -136,9 +140,22 @@ const Home = () => {
                   <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.7 }} className="text-lg text-gray-200 mt-4 max-w-2xl">
                     {slide.subtitle}
                   </motion.p>
-                  <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 1 }} className="mt-6 flex gap-4 flex-wrap">
-                    <button className="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-full font-semibold">{slide.button1}</button>
-                    <button className="bg-white hover:bg-gray-200 text-green-700 px-6 py-2 rounded-full font-semibold">{slide.button2}</button>
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1, delay: 1 }}
+                    className="mt-6 flex gap-4 flex-wrap"
+                  >
+                    <Link to={slide.link1}>
+                      <button className="bg-secondary hover:bg-blue-600 text-white px-6 py-2 rounded-full font-semibold">
+                        {slide.button1}
+                      </button>
+                    </Link>
+                    <Link to={slide.link2}>
+                      <button className="bg-white hover:bg-gray-200 text-blue-700 px-6 py-2 rounded-full font-semibold">
+                        {slide.button2}
+                      </button>
+                    </Link>
                   </motion.div>
                 </div>
               </div>
@@ -157,7 +174,7 @@ const Home = () => {
               opacity: 0.6;
             }
             .swiper-pagination-bullet-active {
-              background: #00ff99;
+              // background: #00ff99;
               opacity: 1;
             }
           `}
@@ -182,7 +199,7 @@ const Home = () => {
             Aryahs World is a multi-venture tech organization striving to bring smart, AI-driven, and scalable solutions to life through our subsidiaries. <br />
             <span className="font-semibold">Founded by Mr. Aryan & Ms. Ahana</span> – driven leaders with a passion for innovation.
           </p>
-          <button className="mt-6 px-6 py-2 bg-green-700 text-white rounded-full hover:bg-green-800 transition">
+          <button onClick={() => {navigate('/about'); window.scrollTo(0, 0);}} className="mt-6 px-6 py-2 bg-secondary text-white rounded-full hover:bg-blue-800 transition">
             Read More
           </button>
         </motion.div>
@@ -198,7 +215,7 @@ const Home = () => {
             className="bg-white shadow-xl rounded-2xl p-6 flex flex-col items-center text-center hover:shadow-2xl transition"
           >
             <img
-              src={caro1} // Replace with actual image path
+              src={"default_men.jpg"} // Replace with actual image path
               alt="Mr. Aryan"
               className="w-32 h-32 rounded-full object-cover mb-4"
             />
@@ -217,7 +234,7 @@ const Home = () => {
             className="bg-white shadow-xl rounded-2xl p-6 flex flex-col items-center text-center hover:shadow-2xl transition"
           >
             <img
-              src={caro2} // Replace with actual image path
+              src={"default_women.jpg"} // Replace with actual image path
               alt="Ms. Ahana"
               className="w-32 h-32 rounded-full object-cover mb-4"
             />
@@ -246,7 +263,7 @@ const Home = () => {
               desc: "AI-powered real estate recommendations.",
               tech: "AI + Real Estate",
               img: caro2,
-              link: "https://majesstystays.in", // Replace with actual live URL
+              link: "/majestystays" 
             },
             {
               name: "CareerGenAI",
@@ -256,11 +273,11 @@ const Home = () => {
               link: "https://careergenai.in", // Actual live website
             },
             {
-              name: "GenAI",
+              name: "GenAI Poshan Yojana",
               desc: "An AI-powered school inspection platform for food quality, sanitation, and student wellness monitoring.",
               tech: "AI, Computer Vision, Public Sector",
               img: GenAi, // Replace with your actual image path
-              link: "/projects/genai",  // Or actual live link if deployed
+              link: "https://play.google.com/store/apps/details?id=com.amit.genai",  // Or actual live link if deployed
             }
             ,
           ].map((service, idx) => (
@@ -283,14 +300,14 @@ const Home = () => {
                   {service.tech}
                 </span>
                 <div className="mt-4">
-                  <a
-                    href={service.link}
-                    target="_blank"
+                  <Link
+                    to={service.link}
+                    onClick={() => window.scrollTo(0, 0)}
                     rel="noopener noreferrer"
                     className="inline-block bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2 rounded-full text-sm shadow-md transition duration-300"
                   >
                     Visit Website
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -345,7 +362,7 @@ const Home = () => {
           {[
             {
               name: "CareerGenAI",
-              desc: "AI-powered career platform for Gen Z job seekers.",
+              desc: "AI-powered career guidance platform.",
               tech: "GenAI, NLP, Resume Intelligence",
               img: CareerGenAi,
             },
@@ -390,7 +407,7 @@ const Home = () => {
         </div>
 
         <div className="text-center mt-12">
-          <button
+          <button onClick={() => {navigate('./services'); window.scrollTo(0, 0);}}
             className="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-full text-lg transition-all duration-300 shadow-md"
             data-aos="fade-up"
             data-aos-delay="300"
@@ -434,68 +451,68 @@ const Home = () => {
 
 
       {/* Contact Section */}
-<section className="py-24 px-4 md:px-20 bg-gradient-to-br from-[#f9f9f9] via-[#f4fefd] to-white">
-  <div className="text-center mb-16" data-aos="fade-down">
-    <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">📬 Get in Touch</h2>
-    <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-      We'd love to hear from you. Whether you have a question about services or want to collaborate — drop us a message.
-    </p>
-  </div>
+      <section className="py-24 px-4 md:px-20 bg-gradient-to-br from-[#f9f9f9] via-[#f4fefd] to-white">
+        <div className="text-center mb-16" data-aos="fade-down">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">📬 Get in Touch</h2>
+          <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+            We'd love to hear from you. Whether you have a question about services or want to collaborate — drop us a message.
+          </p>
+        </div>
 
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-    {/* Left: Form */}
-    <div data-aos="fade-right">
-      <form className="space-y-6">
-        <div>
-          <label className="block mb-2 text-gray-700 font-semibold">Your Name</label>
-          <input
-            type="text"
-            placeholder="Enter your name"
-            className="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none"
-          />
-        </div>
-        <div>
-          <label className="block mb-2 text-gray-700 font-semibold">Your Email</label>
-          <input
-            type="email"
-            placeholder="Enter your email"
-            className="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none"
-          />
-        </div>
-        <div>
-          <label className="block mb-2 text-gray-700 font-semibold">Your Message</label>
-          <textarea
-            placeholder="Type your message"
-            rows={5}
-            className="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none"
-          ></textarea>
-        </div>
-        <button
-          type="submit"
-          className="bg-green-600 hover:bg-green-700 text-white py-3 px-6 rounded-full font-semibold shadow-lg transition-all duration-300"
-        >
-          Send Message
-        </button>
-      </form>
-    </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+          {/* Left: Form */}
+          <div data-aos="fade-right">
+            <form className="space-y-6">
+              <div>
+                <label className="block mb-2 text-gray-700 font-semibold">Your Name</label>
+                <input
+                  type="text"
+                  placeholder="Enter your name"
+                  className="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none"
+                />
+              </div>
+              <div>
+                <label className="block mb-2 text-gray-700 font-semibold">Your Email</label>
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  className="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none"
+                />
+              </div>
+              <div>
+                <label className="block mb-2 text-gray-700 font-semibold">Your Message</label>
+                <textarea
+                  placeholder="Type your message"
+                  rows={5}
+                  className="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none"
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                className="bg-secondary hover:bg-blue-700 text-white py-3 px-6 rounded-full font-semibold shadow-lg transition-all duration-300"
+              >
+                Send Message
+              </button>
+            </form>
+          </div>
 
-    {/* Right: Google Map */}
-    <div
-      data-aos="fade-left"
-      className="w-full h-[450px] rounded-xl overflow-hidden shadow-2xl border border-gray-200"
-    >
-      <iframe
-        title="Aryahs World Office Location"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.697748246635!2d73.0113221!3d19.033035899999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c34d7fd7396b%3A0x8936c484aef8948b!2sAryahs%20World%20Infotech%20OPC%20Pvt%20Ltd!5e0!3m2!1sen!2sin!4v1752839061744!5m2!1sen!2sin"
-        width="100%"
-        height="100%"
-        style={{ border: 0 }}
-        allowFullScreen=""
-        loading="lazy"
-      ></iframe>
-    </div>
-  </div>
-</section>
+          {/* Right: Google Map */}
+          <div
+            data-aos="fade-left"
+            className="w-full h-[450px] rounded-xl overflow-hidden shadow-2xl border border-gray-200"
+          >
+            <iframe
+              title="Aryahs World Office Location"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.697748246635!2d73.0113221!3d19.033035899999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c34d7fd7396b%3A0x8936c484aef8948b!2sAryahs%20World%20Infotech%20OPC%20Pvt%20Ltd!5e0!3m2!1sen!2sin!4v1752839061744!5m2!1sen!2sin"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+            ></iframe>
+          </div>
+        </div>
+      </section>
 
 
     </div>

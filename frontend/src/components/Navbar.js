@@ -23,12 +23,24 @@ const Navbar = ({ onEnquiryClick }) => {
     { name: "Contact Us", path: "/contact" },
   ];
 
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const token = localStorage.getItem('userToken');
+    setIsLoggedIn(!!token);
+  }, [location.pathname]); // update when route changes
+
+  const handleLogout = () => {
+    localStorage.removeItem('userToken');
+    setIsLoggedIn(false);
+    window.location.href = '/'; // reload or navigate
+  };
+
   return (
     <div className="relative">
       <nav
-        className={`w-full z-50 bg-white shadow-md transition-all duration-500 ease-in-out ${
-          showTopInfo ? "" : "fixed top-0 animate-fadeInDown"
-        }`}
+        className={`w-full z-50 bg-white shadow-md transition-all duration-500 ease-in-out ${showTopInfo ? "" : "fixed top-0 animate-fadeInDown"
+          }`}
       >
         <div className="container mx-auto px-4 py-3 flex items-center justify-between flex-wrap">
           {/* Logo */}
@@ -45,9 +57,8 @@ const Navbar = ({ onEnquiryClick }) => {
           {/* Hamburger */}
           <div className="md:hidden">
             <button
-              className={`text-gray-800 text-3xl transition-transform duration-300 ${
-                menuOpen ? "rotate-180" : "rotate-0"
-              }`}
+              className={`text-gray-800 text-3xl transition-transform duration-300 ${menuOpen ? "rotate-180" : "rotate-0"
+                }`}
               onClick={() => setMenuOpen(!menuOpen)}
             >
               {menuOpen ? <HiX /> : <HiOutlineMenu />}
@@ -56,20 +67,18 @@ const Navbar = ({ onEnquiryClick }) => {
 
           {/* Navigation Links */}
           <div
-            className={`w-full md:flex md:items-center md:gap-8 md:w-auto mt-3 md:mt-0 overflow-hidden transition-all duration-300 ease-in-out ${
-              menuOpen ? "block animate-slideDown" : "hidden md:block"
-            }`}
+            className={`w-full md:flex md:items-center md:gap-8 md:w-auto mt-3 md:mt-0 overflow-hidden transition-all duration-300 ease-in-out ${menuOpen ? "block animate-slideDown" : "hidden md:block"
+              }`}
           >
             {navItems.map((item, i) => (
               <Link
                 key={item.name}
                 to={item.path}
-                onClick={() => setMenuOpen(false)}
-                className={`block md:inline-block font-medium px-3 py-2 transition-colors duration-200 delay-[${i * 100}ms] ${
-                  location.pathname === item.path
-                    ? "text-green-700 font-semibold border-b-2 border-green-700"
-                    : "text-gray-800 hover:text-green-700"
-                }`}
+                onClick={() => { setMenuOpen(false); window.scrollTo(0, 0); }}
+                className={`block md:inline-block font-medium px-3 py-2 transition-colors duration-200 delay-[${i * 100}ms] ${location.pathname === item.path
+                    ? "text-blue-700 font-semibold border-b-2 border-blue-700"
+                    : "text-gray-800 hover:text-blue-700"
+                  }`}
               >
                 {item.name}
               </Link>
@@ -81,10 +90,27 @@ const Navbar = ({ onEnquiryClick }) => {
                 setMenuOpen(false);
                 onEnquiryClick(); // ✅ trigger modal
               }}
-              className="bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-full font-medium transition-all duration-200 mt-3 md:mt-0"
+              className="bg-secondary hover:bg-blue-700 text-white px-4 py-2 rounded-full font-medium transition-all duration-200 mt-3 md:mt-0"
             >
               Enquiry Now
             </button>
+
+            {/* {isLoggedIn ? (
+              <button
+                onClick={handleLogout}
+                className="text-red-600 hover:underline font-medium px-4"
+              >
+                Logout
+              </button>
+            ) : (
+              <Link
+                to="/signin"
+                className="text-blue-600 hover:underline font-medium px-4"
+                onClick={() => setMenuOpen(false)}
+              >
+                Sign In
+              </Link>
+            )} */}
           </div>
         </div>
       </nav>

@@ -21,16 +21,16 @@ const services = [
   },
   {
     name: "CareerGenAI",
-    description: "AI-powered career guidance platform using LLMs and resume intelligence.",
+    description: "CareerGenAI helps students and professionals explore career paths, discover top colleges, and access personalized education roadmaps. We provide expert guidance, AI-powered recommendations, and tailored resources to make career planning simple. Unlock premium tools for detailed cut-offs, placement insights, and skill development. Build your future with confidence!",
     tag: "AI, NLP, Web",
-    url: "https://careergenai.in",
+    url: "https://careergenai.in", 
     image: CareerGenAi,
   },
   {
-    name: "GenAI - Porshan Yojana",
+    name: "GenAI - Poshan Yojana",
     description: "Smart inspection system for food, sanitation, and student wellness using AI.",
     tag: "AI + Education + Public Health",
-    url: "#",
+    url: "https://play.google.com/store/apps/details?id=com.amit.genai",
     image: GenAi,
   },
 ];
@@ -164,7 +164,7 @@ const Services = () => {
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 bg-white px-4 md:px-20 text-center">
+      {/* <section className="py-20 bg-white px-4 md:px-20 text-center">
         <h3 className="text-3xl font-bold mb-10">💬 What Our Clients Say</h3>
         <Swiper spaceBetween={50} slidesPerView={1}>
           {[
@@ -180,7 +180,7 @@ const Services = () => {
             </SwiperSlide>
           ))}
         </Swiper>
-      </section>
+      </section> */}
 
       {/* Start a Project CTA */}
       <section className="py-20 px-6 bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-center">

@@ -12,7 +12,7 @@ import {
 
 function Footer() {
   return (
-    <footer className="bg-green-900 text-white pt-10">
+    <footer className="bg-primary  text-white pt-10">
       <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 pb-10">
         {/* About Us */}
         <div>
@@ -20,14 +20,14 @@ function Footer() {
           <p className="text-sm leading-relaxed text-justify">
             Aryahs World Infotech (OPC) Pvt Ltd., a dynamic hub of innovation hosting a range of forward-thinking startups. Led by the visionary minds of Mr. Aryan and Ms. Ahana, each venture within our ecosystem is dedicated to revolutionizing its industry through cutting-edge technology. Mr. Aryan, armed with a Master's degree in Computer Science Engineering from San Francisco, drives the technological innovation behind Majesstystays. His expertise in AI and data science ensures personalized property recommendations tailored to users' preferences, setting new standards in the real estate industry.
             <br />
-            <Link to="/about" className="text-yellow-400 hover:underline">Read More...</Link>
+            <Link to="/about" onClick={() => window.scrollTo(0, 0)} className="text-yellow-400 hover:underline">Read More...</Link>
           </p>
         </div>
 
         {/* Menu */}
         <div>
           <h2 className="text-xl font-semibold mb-4">Our Menu</h2>
-          <ul className="space-y-2 text-sm">
+          <ul onClick={() => window.scrollTo(0, 0)} className="space-y-2 text-sm">
             <li><Link to="/" className="hover:text-yellow-400">Home</Link></li>
             <li><Link to="/about" className="hover:text-yellow-400">About Us</Link></li>
             <li><Link to="/services" className="hover:text-yellow-400">Our Services</Link></li>
@@ -62,10 +62,9 @@ function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-white/20 py-4 text-center text-xs text-white bg-green-800">
-        <p>
-          Copyright © 2024 <strong>ARYAHS EXIM</strong> All Rights Reserved | Website Designed by:{" "}
-          <a href="https://saiwaytech.in" className="text-yellow-400 hover:underline">Saiway Tech</a>
+      <div className="border-t border-white/20 py-4 text-center text-xs text-white bg-primary ">
+        <p className="text-sm text-gray-200 text-center mt-1">
+          © {new Date().getFullYear()} Aryahs World Infotech (OPC) Pvt. Ltd. All rights reserved.
         </p>
       </div>
     </footer>

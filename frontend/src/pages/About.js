@@ -187,7 +187,7 @@ const About = () => {
           Ready to take your idea to the next level? Connect with us today and let’s create something extraordinary.
         </p>
         <a href="/contact">
-          <button className="bg-green-700 hover:bg-green-800 text-white px-8 py-3 rounded-full text-lg shadow transition duration-300">
+          <button className="bg-secondary hover:bg-blue-800 text-white px-8 py-3 rounded-full text-lg shadow transition duration-300">
             Contact Us
           </button>
         </a>

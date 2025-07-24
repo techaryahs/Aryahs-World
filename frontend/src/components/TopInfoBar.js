@@ -10,7 +10,7 @@ import {
 
 function TopInfoBar() {
   return (
-    <div className="bg-green-900 text-white text-sm px-4 py-2 hidden md:block">
+    <div className="bg-primary  text-white text-sm px-4 py-2 hidden md:block">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         {/* Contact Info */}
         <div className="flex items-center gap-6">

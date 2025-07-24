@@ -18,10 +18,10 @@ const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors(
-  {
-    origin: 'https://aryahs-world.vercel.app',
-    credentials: true
-  }
+  // {
+  //   origin: 'https://aryahs-world.vercel.app',
+  //   credentials: true
+  // }
 ));
 app.use(express.json());
 

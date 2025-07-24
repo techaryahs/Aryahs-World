@@ -104,9 +104,9 @@ const Contact = () => {
           <h2 className="text-2xl font-semibold mb-6">Contact Details</h2>
           <div className="space-y-4 text-gray-700">
             <p><strong>📍 Address:</strong> Plot No 80 & 81, Sector 18A, Nerul, Navi Mumbai, Maharashtra 400706</p>
-            <p><strong>📞 Phone:</strong> +91-9876543210</p>
-            <p><strong>✉️ Email:</strong> contact@aryahs.com</p>
-            <p><strong>🕒 Hours:</strong> Mon–Sat, 10AM–6PM</p>
+            <p><strong>📞 Phone:</strong> +91 8657869659</p>
+            <p><strong>✉️ Email:</strong> contact@aryahsworld.com</p>
+            <p><strong>🕒 Hours:</strong> Mon–Fri, 9AM–5PM</p>
           </div>
 
           {/* Social Media Icons */}

@@ -6,12 +6,14 @@ import TopInfoBar from "./components/TopInfoBar";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ContactModal from "./components/ContactModal"; // ✅ Import the modal
-
+import MajestyStays from "./pages/Majestystays";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Services from "./pages/Services";
 import Contact from "./pages/Contact";
 import StartProject from "./pages/StartProject";
+// import Signin from "./components/Signin";
+// import Register from "./components/Register";
 
 function App() {
   const [showModal, setShowModal] = useState(false); // ✅ Modal state
@@ -29,6 +31,10 @@ function App() {
             <Route path="/services" element={<Services />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/enquiry" element={<StartProject />} />
+            <Route path="/contact" element={<Contact />} />
+            {/* <Route path="/signin" element={<Signin />} /> */}
+            {/* <Route path="/register" element={<Register />} /> */}
+            <Route path="/majestystays" element={<MajestyStays />} />
           </Routes>
         </main>
 
